@@ -19,7 +19,11 @@ A simple library to handle filenames automatically for artifacts.
 
 ## Features
 
-* TODO
+This library helps to convert a set of parameters into filenames and vice versa.
+
+For example,
+
+# TODO
 
 ## Credits
 
