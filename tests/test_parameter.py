@@ -6,6 +6,7 @@ def test_attributes():
     assert par.name == "par1"
     assert par.format == "bool"
 
+
 def test_float():
     par = Parameter("par", "fp2.3")
     p_e = par.encode(133.234113)
@@ -13,7 +14,7 @@ def test_float():
     p_e = par.encode(1)
     assert p_e == "01.000", f"Encoded {p_e} != 01.000"
     assert par.decode(par.encode(133.234113)) == 133.234
-    assert par.decode(par.encode(1.)) == 1.
+    assert par.decode(par.encode(1.0)) == 1.0
 
     par = Parameter("par", "fp1.1")
     p_e = par.encode(133.234113)
@@ -21,7 +22,8 @@ def test_float():
     p_e = par.encode(1)
     assert p_e == "1.0", f"Encoded {p_e} != 1.0"
     assert par.decode(par.encode(133.354113)) == 133.4
-    assert par.decode(par.encode(1.)) == 1.
+    assert par.decode(par.encode(1.0)) == 1.0
+
 
 def test_int():
     par = Parameter("par", "int")

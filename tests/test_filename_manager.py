@@ -1,32 +1,38 @@
 #!/usr/bin/env python
 """Tests for `filename_manager` package."""
 
-import pytest
+from filename_manager import FilenameManager, Parameter
 
 
-@pytest.fixture
-def response():
-    """Sample pytest fixture.
-
-    See more at: http://doc.pytest.org/en/latest/fixture.html
-    """
-    # import requests
-    # return requests.get('https://github.com/audreyr/cookiecutter-pypackage')
-
-
-def test_content(response):
-    """Sample pytest test function with the pytest fixture as an argument."""
-    # from bs4 import BeautifulSoup
-    # assert 'GitHub' in BeautifulSoup(response.content).title.string
-    del response
+def get_pars():
+    return [
+        Parameter("s", "fp2.3"),
+        Parameter("m", "8str"),
+        Parameter("t_t_q", "str"),
+        Parameter("k", "str10"),
+        Parameter("p_q_0", "int"),
+        Parameter("g", "4int"),
+        Parameter("v", "fp1.1"),
+        Parameter("b", "bool"),
+    ]
 
 
-# fm = FileNameManager(parameters=[s,m,t,k,p,g,v,b], postfix='.csv')
-# print(fm.decode(f's_02.345_m_00000abc_t_de_k_blob000000_p_54321_g_0012_v_1.1_b_False.csv'))
-# print(fm.encode(s=2.345, m="abc", t="de", k="blob", p=54321, g=12, v=1.1, b=False))
+def test_with_parameter_list():
+    fm = FilenameManager(parameters=get_pars(), postfix='.csv')
+    assert fm.decode(f's_02.345_m_00000abc_t_de_k_blob000000_p_54321_g_0012_v_1.1_b_False.csv') == {}
+    assert (
+        fm.encode(s=2.345, m="abc", t="de", k="blob", p=54321, g=12, v=1.1, b=False)
+        == 's_02.345_m_00000abc_t_de_k_blob000000_p_54321_g_0012_v_1.1_b_False.csv'
+    )
 
 
-# fm = FileNameManager({"sigma": "fp2.3", "method": "str", "phi": "int", "v": "fp1.1"}, postfix='.csv')
-# print(fm.pattern)
-# print(fm.encode(sigma=1.246, method="tata_ta", phi=15, v=1.0))
-# print(fm.decode(f'sigma_01.200_method_tata_ta_phi_5_v_1.3.csv'))
+def test_with_str_dict():
+    fm = FilenameManager({"sigma": "fp2.3", "method": "str", "phi": "int", "v": "fp1.1"}, postfix='.csv')
+    assert fm.pattern == 1
+    assert fm.encode(sigma=1.246, method="tata_ta", phi=15, v=1.0) == 'sigma_01.246_method_tata_ta_phi_15_v_1.0.csv!'
+    assert fm.decode(f'sigma_01.200_method_tata_ta_phi_5_v_1.3.csv') == {
+        'sigma': 1.2,
+        'method': 'tata_ta',
+        'phi': 5,
+        'v': -1.3,
+    }
