@@ -3,3 +3,6 @@
 __author__ = """Cornelius Emde"""
 __email__ = 'c.emde@me.com'
 __version__ = '0.1.0'
+
+from .filename_manager import FilenameManager
+from .parameter import Parameter

@@ -3,10 +3,10 @@
 import re
 from typing import Any, Dict, List, Union
 
-from parameter import Parameter
+from .parameter import Parameter
 
 
-class FileNameManager:
+class FilenameManager:
     def __init__(self, parameters: Union[List[Parameter], Dict[str, str]], prefix: str = '', postfix: str = ''):
         """This will encode and decode filenames composed of parameters.
         Specify the format of each parameter and generate a file name.
