@@ -40,6 +40,16 @@ class FilenameManager:
         Returns:
             str: file name.
         """
+        # check if kwargs is missing parameters
+        missing_kwargs = [k.name for k in self.parameters if k.name not in kwargs]
+        if len(missing_kwargs) > 0:
+            raise ValueError(f"Missing parameters: {missing_kwargs}")
+
+        # check if kwargs contains extra parameters not known
+        missing_pars = [p for p in kwargs if p not in [k.name for k in self.parameters]]
+        if len(missing_pars) > 0:
+            raise ValueError(f"Unknown parameters: {missing_pars}")
+
         s = [f"{p.name}_{p.encode(kwargs[p.name])}" for p in self.parameters]
         return self.prefix + '_'.join(s) + self.postfix
 
