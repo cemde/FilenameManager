@@ -40,9 +40,11 @@ jobs:
       - name: test with tox
         run:
           tox
-      - name: create coverage xml
-        run: |
-          pytest --cov=filename_manager --cov-branch --cov-report=xml --cov-report=term-missing tests
+
+      # - name: create coverage xml
+      #   run: |
+      #     pytest --cov=filename_manager --cov-branch --cov-report=xml --cov-report=term-missing tests
+
       - name: list files
         run: ls -l .
 
