@@ -4,6 +4,7 @@
 from filename_manager import FilenameManager, Parameter
 import pytest
 
+
 def get_pars():
     return [
         Parameter("s", "fp2.3"),
@@ -23,7 +24,16 @@ def test_with_parameter_list():
         fm.encode(s=2.345, m="abc", t_t_q="de", k="blob", p_q_0=54321, g=12, v=1.1, b=False)
         == 's_02.345_m_00000abc_t_t_q_de_k_blob000000_p_q_0_54321_g_0012_v_1.1_b_False.csv'
     )
-    assert fm.decode(f's_02.345_m_00000abc_t_t_q_de_k_blob000000_p_q_0_54321_g_0012_v_1.1_b_False.csv') == {"s": 2.345, "m": "abc", "t_t_q": "de", "k": "blob", "p_q_0": 54321, "g": 12, "v": 1.1, "b": False}
+    assert fm.decode(f's_02.345_m_00000abc_t_t_q_de_k_blob000000_p_q_0_54321_g_0012_v_1.1_b_False.csv') == {
+        "s": 2.345,
+        "m": "abc",
+        "t_t_q": "de",
+        "k": "blob",
+        "p_q_0": 54321,
+        "g": 12,
+        "v": 1.1,
+        "b": False,
+    }
 
 
 def test_with_str_dict():
@@ -36,9 +46,11 @@ def test_with_str_dict():
         'v': 1.3,
     }
 
+
 @pytest.mark.xfail
 def test_encode_missing_parameter():
     pass
+
 
 @pytest.mark.xfail
 def test_encode_too_many_parameters():

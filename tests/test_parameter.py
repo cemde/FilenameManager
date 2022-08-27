@@ -40,7 +40,7 @@ def test_int():
 
     assert par.decode("-0100") == -100
     assert par.decode("0133") == 133
-    assert par.encode("123456") == 123456
+    assert par.decode("123456") == 123456
 
 
 def test_str():
