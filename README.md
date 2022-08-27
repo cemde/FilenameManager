@@ -68,6 +68,15 @@ The variable `pars` is a dictionary with `{"par1": "Hello", "par2": 3.11}`.
 
 The documentation is given in the docstrings. Only two classes exist. `Parameter` and `FilenameManager`.
 
+The supported formats are
+
+- `fp*.*` for floating point parameters. E.g. "fp4.3" formats 1.2 as "0001.200"
+- `str` for string parameters.
+- `str*` for string parameters with * characters padded with 0 in the end.
+- `*str` for string parameters with * characters padded with 0 in the beginning.
+- `bool` for boolean parameters.
+- `*int` for integer parameters with * leading zeros.
+
 ## Credits
 
 This package was created with [Cookiecutter](https://github.com/audreyr/cookiecutter) and the [waynerv/cookiecutter-pypackage](https://github.com/waynerv/cookiecutter-pypackage) project template.
