@@ -1,6 +1,6 @@
 """This module defines the Parameter class."""
 import re
-from typing import Any, Callable
+from typing import Any
 
 
 class Parameter:
@@ -11,6 +11,7 @@ class Parameter:
         format (str): The format.
         pattern (str): The regular expression pattern.
     """
+
     def __init__(self, name: str, format: str) -> None:
         """Create a parameter class.
 
@@ -40,30 +41,30 @@ class Parameter:
 
         elif "bool" in format:
             self.pattern = 'True|False'
-            self._decode_fn = lambda x: x == "True" # type: ignore
+            self._decode_fn = lambda x: x == "True"  # type: ignore
             self._encode_fn = lambda x: str(x)
 
         elif "int" in format:
             if "int" == format:
                 self.pattern = r'\d+'
-                self._decode_fn = int # type: ignore
+                self._decode_fn = int  # type: ignore
                 self._encode_fn = lambda x: str(x)
             else:
                 n_digits = format[0]
                 self.pattern = fr'\d{{{n_digits}}}'
-                self._decode_fn = int # type: ignore
+                self._decode_fn = int  # type: ignore
                 self._encode_fn = lambda x: f"{x:0{n_digits}d}"
 
         elif "str" in format:
             if format == "str":
                 self.pattern = r'\w+'
-                self._decode_fn = str # type: ignore
+                self._decode_fn = str  # type: ignore
                 self._encode_fn = lambda x: x
 
             else:
                 n_char = int(re.findall(r'\d+', format)[0])
                 self.pattern = fr'\w{{{n_char}}}'
-                self._decode_fn = lambda x: x.replace("0", "") # type: ignore
+                self._decode_fn = lambda x: x.replace("0", "")  # type: ignore
                 pad_at_back = format.startswith("str")
 
                 def encfn(x):

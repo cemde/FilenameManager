@@ -15,6 +15,7 @@ class FilenameManager:
         postfix (str): Postfix of the filename.
         pattern (str): Regex pattern of the filename.
     """
+
     def __init__(self, parameters: Union[List[Parameter], Dict[str, str]], prefix: str = '', postfix: str = ''):
         """This will encode and decode filenames composed of parameters.
 
