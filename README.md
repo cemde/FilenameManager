@@ -15,6 +15,11 @@ A simple Python library to handle filenames automatically for artifacts.
 * GitHub: <https://github.com/cemde/FilenameManager>
 * PyPI: <https://pypi.org/project/FilenameManager/>
 
+## Install
+
+```bash
+pip install filenamemanager
+```
 
 ## Features
 
