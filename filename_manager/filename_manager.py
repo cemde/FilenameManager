@@ -71,6 +71,8 @@ class FilenameManager:
             Dict[str, Any]: Parameters.
         """
         m = re.match(self.pattern, string)
+        if m is None:
+            raise ValueError(f"Filename {string} does not match pattern {self.pattern}")
         args = {}
         for i, p in enumerate(self.parameters):
             args[p.name] = p.decode(m.group(i + 1))
