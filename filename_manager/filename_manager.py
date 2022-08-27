@@ -7,16 +7,24 @@ from .parameter import Parameter
 
 
 class FilenameManager:
+    """The FilenameManager generates and reads filenames automatically.
+
+    Attributes:
+        parameters (List[Parameter]): List of parameters.
+        prefix (str): Prefix of the filename.
+        postfix (str): Postfix of the filename.
+        pattern (str): Regex pattern of the filename.
+    """
     def __init__(self, parameters: Union[List[Parameter], Dict[str, str]], prefix: str = '', postfix: str = ''):
         """This will encode and decode filenames composed of parameters.
-        Specify the format of each parameter and generate a file name.
 
-        "fp*.*" for floating point parameters. E.g. "fp4.3" formats 1.2 as "0001.200"
-        "str" for string parameters.
-        "str*" for string parameters with * characters padded with 0 in the end.
-        "*str" for string parameters with * characters padded with 0 in the beginning.
-        "bool" for boolean parameters.
-        "*int" for integer parameters with * leading zeros.
+        Specify the format of each parameter and generate a file name.
+            "fp*.*" for floating point parameters. E.g. "fp4.3" formats 1.2 as "0001.200"
+            "str" for string parameters.
+            "str*" for string parameters with * characters padded with 0 in the end.
+            "*str" for string parameters with * characters padded with 0 in the beginning.
+            "bool" for boolean parameters.
+            "*int" for integer parameters with * leading zeros.
 
         Args:
             parameters (Union[List[Parameter], Dict[str, str]]): specifies the parameters with names and formats.
