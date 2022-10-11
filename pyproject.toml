@@ -1,7 +1,7 @@
 [tool]
 [tool.poetry]
 name = "FilenameManager"
-version = "0.1.0"
+version = "0.2.0"
 homepage = "https://github.com/cemde/FilenameManager"
 description = "A simple library to handle filenames automatically for artifacts.."
 authors = ["Cornelius Emde <c.emde@me.com>"]
