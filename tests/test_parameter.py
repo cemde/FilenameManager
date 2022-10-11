@@ -24,6 +24,10 @@ def test_float():
     assert par.decode(par.encode(133.354113)) == 133.4
     assert par.decode(par.encode(1.0)) == 1.0
 
+    par = Parameter("par", "fp2.3")
+    par = par.decode("-00.900")
+    assert par == -0.9
+
 
 def test_int():
     par = Parameter("par", "int")
