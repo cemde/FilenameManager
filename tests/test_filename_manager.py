@@ -55,3 +55,9 @@ def test_encode_missing_parameter():
 @pytest.mark.xfail
 def test_encode_too_many_parameters():
     pass
+
+def test_more_decoding():
+    fm = FilenameManager({'n_data': '6int', 'n_bins': '3int', 'conf': 'fp1.2', 'c': 'fp1.2', 'n_sim': '9int'}, prefix='pkls/', postfix='.pickle')
+    filename = "pkls/n_data_000100_n_bins_001_conf_-0.50_c_0.40_n_sim_001000000.pickle"
+    pars = fm.decode(filename)
+    assert pars["conf"] == -0.5

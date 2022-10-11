@@ -35,7 +35,7 @@ class Parameter:
             m = re.match(r'fp(\d+).(\d+)', format)
             assert m is not None, f"Invalid format: {format}"
             g1, g2 = int(m.group(1)), int(m.group(2))
-            self.pattern = fr'\d{{{g1}}}.\d{{{g2}}}'
+            self.pattern = fr'-?\d{{{g1}}}.\d{{{g2}}}'
             self._decode_fn = float
             self._encode_fn = lambda x: f"{x:0{g1+g2+1}.{g2}f}"
 
