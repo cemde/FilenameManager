@@ -396,7 +396,7 @@ python-versions = ">=3.6"
 click = ">=3.3"
 ghp-import = ">=1.0"
 importlib-metadata = ">=4.3"
-Jinja2 = ">=2.10.2,<3.0"
+Jinja2 = ">=2.10.2"
 Markdown = ">=3.2.1,<3.4"
 mergedeep = ">=1.3.4"
 packaging = ">=20.5"
@@ -463,9 +463,9 @@ optional = true
 python-versions = ">=3.6,<4.0"
 
 [package.dependencies]
-Jinja2 = ">=2.11.1,<3.0"
+Jinja2 = ">=2.11.1,<4.0"
 Markdown = ">=3.3,<4.0"
-MarkupSafe = ">=1.1"
+MarkupSafe = ">=1.1,<3.0"
 mkdocs = ">=1.1.1,<2.0.0"
 mkdocs-autorefs = ">=0.1,<0.3"
 pymdown-extensions = ">=6.3,<9.0"
@@ -994,7 +994,7 @@ test = ["pytest", "black", "isort", "mypy", "flake8", "flake8-docstrings", "pyte
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.6.2,<4.0"
-content-hash = "696be8f63e4b982027084c3328b034df0416bed9e6f54482b513e6eaa732a38e"
+content-hash = "2d6b2ec5023ddf4b5182196c366179fbf796a05ab69a25314a95121e0f653a31"
 
 [metadata.files]
 atomicwrites = [
