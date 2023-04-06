@@ -1,7 +1,7 @@
 [tool]
 [tool.poetry]
 name = "FilenameManager"
-version = "0.2.0"
+version = "0.3.0"
 homepage = "https://github.com/cemde/FilenameManager"
 description = "A simple library to handle filenames automatically for artifacts.."
 authors = ["Cornelius Emde <c.emde@me.com>"]
@@ -27,7 +27,6 @@ packages = [
 python = ">=3.6.2,<4.0"
 
 black  = { version = "^22.6", optional = true}
-jinja2  = { version = "<3.0", optional = true}
 isort  = { version = "^5.8.0", optional = true}
 flake8  = { version = "^3.9.2", optional = true}
 flake8-docstrings = { version = "^1.6.0", optional = true }
@@ -89,6 +88,11 @@ exclude = '''
   | dist
 )/
 '''
+
+
+[tool.ruff]
+line-length = 120
+
 
 [tool.isort]
 multi_line_output = 3
